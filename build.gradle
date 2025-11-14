@@ -24,3 +24,11 @@ dependencies {
     annotationProcessor "io.github.openfeign.querydsl:querydsl-apt:7.0:jpa"
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}

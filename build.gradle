@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.oot'
+version = '0.0.1-SNAPSHOT'
+description = 'OOT-Common'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jackson - DTO 직렬화/역직렬화 지원
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+
+    // Lombok - 코드 자동 생성 (getter, builder 등)
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // QueryDSL JPA - @QueryProjection용
+    implementation "io.github.openfeign.querydsl:querydsl-jpa:7.0"
+    annotationProcessor "io.github.openfeign.querydsl:querydsl-apt:7.0:jpa"
+
+    // 테스트 (필요시)
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

@@ -1,5 +1,7 @@
 package com.ootcommon.wearrecord.response;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,11 +17,12 @@ public class NotWornOverPeriod {
     private final Long daysNotWorn; // 옷 미착용 기간
 
     // QueryDSL에서 사용할 생성자
+    @JsonCreator
     @QueryProjection
     public NotWornOverPeriod(
-            Long clothesId,
-            String clothesDescription,
-            LocalDateTime lastWornAt
+            @JsonProperty("clothesId") Long clothesId,
+            @JsonProperty("clothesDescription") String clothesDescription,
+            @JsonProperty("lastWornAt") LocalDateTime lastWornAt
     ) {
         this.clothesId = clothesId;
         this.clothesDescription = clothesDescription;

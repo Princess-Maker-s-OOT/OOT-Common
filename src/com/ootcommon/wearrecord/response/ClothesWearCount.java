@@ -1,5 +1,7 @@
 package com.ootcommon.wearrecord.response;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
 
@@ -10,11 +12,12 @@ public class ClothesWearCount {
     private final String clothesDescription;
     private final Long wearCount; // 착용 횟수 카운트
 
+    @JsonCreator
     @QueryProjection
     public ClothesWearCount(
-            Long clothesId,
-            String clothesDescription,
-            Long wearCount
+            @JsonProperty("clothesId") Long clothesId,
+            @JsonProperty("clothesDescription") String clothesDescription,
+            @JsonProperty("wearCount") Long wearCount
     ) {
         this.clothesId = clothesId;
         this.clothesDescription = clothesDescription;

@@ -1,6 +1,6 @@
 package com.ootcommon.dashboard.constant;
 
-public class DashboardCacheNames {
+public class DashboardAdminCacheNames {
     public static final String USER = "dashboard:admin:user";
     public static final String CLOTHES = "dashboard:admin:clothes";
     public static final String SALE_POST = "dashboard:admin:salePost";
